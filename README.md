@@ -1,7 +1,7 @@
 # randdistgraph
 generate random distribution graph pictures in a lazy and brute force way
 
-This little 'Tool' is inspired by Jonathan Blows video: ![Game Engine Programming: Making Particles Even Cooler](https://www.youtube.com/watch?v=pAsFngEL8eI "Game Engine Programming: Making Particles Even Cooler")
+This little 'Tool' is inspired by Jonathan Blows video: [Game Engine Programming: Making Particles Even Cooler](https://www.youtube.com/watch?v=pAsFngEL8eI "Game Engine Programming: Making Particles Even Cooler")
 
 ## example pictures
 
