@@ -5,7 +5,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; sampling code
 
-(define bucket-amount 100)
+(define bucket-amount 1000)
 (define bucket-last   (sub1 bucket-amount))
 (define (value->bucket-index value)
   (min (inexact->exact (floor (* value bucket-amount)))
@@ -24,18 +24,42 @@
     (define value (func))
     (add-sample (value->bucket-index value)))
 
-  (define upper-bound (apply max (vector->list samples)))
+  (define smoothed (smooth samples 3))
+
+  (define upper-bound (apply max (vector->list smoothed)))
   (define scaled
-    (for/vector ([v (in-vector samples)])
+    (for/vector ([v (in-vector smoothed)])
       (/ v upper-bound)))
 
   scaled)
 
 
+;; kernel-width*2+1 is the actual window that is used for smoothing
+;; at the edges it is kernel-width+1
+;; is this ok? or would it better to use the same 5 samples multiple times?
+;; TODO compare the results
+(define (smooth samples kernel-width)
+  (define length (vector-length samples))
+
+  (define (select-kernel i width)
+    (define start  (max 0      (- i width)))
+    (define end    (min length (+ i width)))
+    (define amount (- end start))
+    (define sum
+      (for/fold ([sum 0])
+                ([i (in-range start end)])
+        (+ sum
+           (vector-ref samples i))))
+    (/ sum amount))
+
+  (for/vector ([(v i) (in-indexed (in-vector samples))])
+    (select-kernel i kernel-width)))
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; png rendering
 
-(define size       128)
+(define size       256)
 (define padding    10)
 (define padding2   (* padding 2))
 (define max-width  (- size padding2))
