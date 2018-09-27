@@ -45,7 +45,7 @@
 
 (define bitmap (make-object bitmap% size size #f #t))
 (define dc (send bitmap make-dc))
-(define pen-size 1)
+(define pen-size 4)
 
 (define (with-outline)
   (send dc set-pen   (make-color 30 175 210) pen-size 'solid)
