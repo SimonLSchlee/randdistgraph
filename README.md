@@ -24,7 +24,3 @@ With [racket](https://racket-lang.org) installed:
 ![three-dice-squared](three-dice-squared.png?raw=true "three-dice-squared")
 ![four-dice-squared](four-dice-squared.png?raw=true "four-dice-squared")
 ![extremes](extremes.png?raw=true "extremes")
-
-## TODO
-
-apply a windowed smoothing function over the vector to reduce the edges in the curve
