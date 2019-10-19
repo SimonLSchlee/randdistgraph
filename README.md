@@ -1,7 +1,7 @@
 # randdistgraph
 generate random distribution graph pictures in a lazy and brute force way
 
-This little 'Tool' is inspired by Jonathan Blows video: [Game Engine Programming: Making Particles Even Cooler](https://www.youtube.com/watch?v=pAsFngEL8eI "Game Engine Programming: Making Particles Even Cooler")
+This little 'Tool' is inspired by Jonathan Blow's video: [Game Engine Programming: Making Particles Even Cooler](https://www.youtube.com/watch?v=pAsFngEL8eI "Game Engine Programming: Making Particles Even Cooler")
 
 ## execute / generate
 With [racket](https://racket-lang.org) installed:
@@ -24,7 +24,3 @@ With [racket](https://racket-lang.org) installed:
 ![three-dice-squared](three-dice-squared.png?raw=true "three-dice-squared")
 ![four-dice-squared](four-dice-squared.png?raw=true "four-dice-squared")
 ![extremes](extremes.png?raw=true "extremes")
-
-## TODO
-
-apply a windowed smoothing function over the vector to reduce the edges in the curve
